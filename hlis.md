@@ -16,10 +16,9 @@
 - [Integration architecture](#integration-architecture)
   - [TO-BE Architecture](#to-be-architecture)
     - [Architecture Description](#architecture-description)
+      - [As Is component diagram](#as-is-component-diagram)
+      - [To Be component diagram](#to-be-component-diagram)
 - [IDDS](#idds)
-  - [UC01. Call routing](#uc01-call-routing)
-    - [Sequence diagram](#sequence-diagram)
-    - [Identified requirements](#identified-requirements)
 
 # Versions
 
@@ -101,6 +100,8 @@ Architecture decisions should be created in the KZ - 2. Architecture decisions r
 
 ### Architecture Description
 
+#### As Is component diagram
+
 ```mermaid
 
 flowchart LR
@@ -122,6 +123,10 @@ flowchart LR
   click Client "https://www.github.com" "This is a link"
 ```
 
+#### To Be component diagram
+
+![Taco Tabs](images/component-diagram.png "Tacos")
+
 # IDDS
 
 List of Use Cases:
@@ -139,62 +144,11 @@ List of Use Cases:
 - UC11. Number blocking
 - UC12. Send SMS with information
 
-## UC01. Call routing
+[mkdnlink]: /idds/uc01-call-routing
 
-### Sequence diagram
-
-| Name                | Description            |
-| ------------------- | ---------------------- |
-| Involved components | Client, IVR, ESB, DBSS |
-| Note                | Client, IVR, ESB, DBSS |
-| Postconditions      | -                      |
-| Preconditions       | -                      |
-| Initiated           | -                      |
-
-**Sequence Diagram**
-
-```mermaid
-sequenceDiagram
-    title "UC01. Call routing"
-    link ACM: Dashboard @ https://dashboard.contoso.com/alice
-    Client ->> ACM : The B2C client makes a call to "0611/116"
-    ACM ->> IVR : Make a call routing  \n  to IVR (UUI-header)
-    IVR ->> ESB : GET /subscriberLookUp (MSIMSDN)
-    ESB ->> ODS : GET /subscriberLookUp (MSIMSDN)
-    ESB -) ODS : result (isSubscriber, platform)
-    IVR -) ESB : result (isSubscriber, platform)
-    IVR ->> IVR : Route requests between DBSS / legacy systems
-    IVR ->> IVR : Route beetween IVR, Voicebot \n and Operator based on segment \n and region from UUI-header \n from ACM
-    alt Voice bot
-        IVR ->> VB : Make a routing to Voice bot (end of scenario)
-    else Operator
-        IVR ->> Operator : Make a routing to Operator (end of scenario)
-    else IVR
-        IVR ->> IVR : Stay in IVR menu
-    end
-    IVR ->> EIR : GET /customer/getstate (MSIMSDN)
-    IVR -) EIR : List number (0 - white list, 1 - grey list, 2 - black list)
-    IVR ->> ESB : GET /getSubscriberAccountInfo
-    ESB ->> DBSS : GET /accountGetByFilter
-    IVR -) DBSS : Account InternalId, status, languageCode
-    IVR ->> ESB : GET /getSubscriberBalance
-    ESB ->> DBSS : GET /retrievesBalances
-    IVR -) DBSS : Account balances
-    IVR ->> IVR : IVR distributes calls according to the settings
-```
-
-**Basic steps:**
-
-1. The B2C client makes a call to 0611/116
-1. IVR receives data about the client segment and region
-1. Route requests between DBSS / legacy systems
-1. Route beetween IVR, Voicebotand Operator based on segment and region 1. from UUI-header from ACM
-1. IVR distributes calls according to the settings
-
-**Alternative steps:**
-
-### Identified requirements
-
-| #   | Required changes | Components | Phase | Use Case | Jira |
-| --- | ---------------- | ---------- | ----- | -------- | ---- |
-| 1   | -                | -          | -     | -        | -    |
+<table>
+<tr>
+<td>*one*</td>
+<td>[a link](https://google.com)</td>
+</tr>
+</table>
