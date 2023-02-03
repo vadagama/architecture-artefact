@@ -22,6 +22,9 @@
   - [UC01. Call routing](#uc01-call-routing)
     - [Sequence diagram](#sequence-diagram)
     - [Identified requirements](#identified-requirements)
+  - [UC02. Greeting and language selection](#uc02-greeting-and-language-selection)
+    - [Sequence diagram](#sequence-diagram-1)
+    - [Identified requirements](#identified-requirements-1)
 - [Open questions](#open-questions)
 
 # Versions
@@ -207,14 +210,37 @@ sequenceDiagram
 >
 >   _Everything_ is going according to **plan**.
 
-> [!WARNING]
-> Dangerous certain consequences of an action.
+## UC02. Greeting and language selection
 
-# Open questions
+### Sequence diagram
 
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
+| Name                | Description            |
+| ------------------- | ---------------------- |
+| Involved components | Client, IVR, ESB, DBSS |
+| Note                | Client, IVR, ESB, DBSS |
+| Postconditions      | -                      |
+| Preconditions       | -                      |
+| Initiated           | -                      |
+
+**Sequence Diagram**
+
+**Basic steps:**
+
+1. The B2C client makes a call to 0611/116
+1. IVR receives data from "172.28.93.132:1521", "KZCDB"
+
+- The language is selected – IVR welcomes and voices the selected language, offers to press the button to change the language
+- The client did not press anything – the transition to the next block
+- The client has chosen a different language – IVR serves in the selected language
+  - Language not selected – IVR serves in the selected language
+
+**Alternative steps:**
+
+### Identified requirements
+
+| #   | Required changes | Components | Phase | Use Case | Jira |
+| --- | ---------------- | ---------- | ----- | -------- | ---- |
+| 1   | -                | -          | -     | -        | -    |
 
 ```ruby
 # The Greeter class
@@ -238,3 +264,12 @@ g.salute
 ```yaml
 { "this-json": "looks awesome..." }
 ```
+
+> [!WARNING]
+> Dangerous certain consequences of an action.
+
+# Open questions
+
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
