@@ -22,6 +22,7 @@
   - [UC01. Call routing](#uc01-call-routing)
     - [Sequence diagram](#sequence-diagram)
     - [Identified requirements](#identified-requirements)
+- [Open questions](#open-questions)
 
 # Versions
 
@@ -105,6 +106,9 @@ Architecture decisions should be created in the KZ - 2. Architecture decisions r
 
 #### As Is component diagram
 
+<details>
+    <summary>As Is component diagram (<i>click to expand</i>)</summary>
+
 ```mermaid
 
 flowchart LR
@@ -123,8 +127,12 @@ flowchart LR
     IVR-.Hooligans list.->IVRDB[(IVRDB)]
     IVR-..->EIR
     USS-..->Ensemble
-  click Client "https://www.github.com" "This is a link"
+
+click Client "https://www.github.com" "This is a link"
+
 ```
+
+  </details>
 
 #### To Be component diagram
 
@@ -143,8 +151,6 @@ flowchart LR
 | Postconditions      | -                      |
 | Preconditions       | -                      |
 | Initiated           | -                      |
-
-**Sequence Diagram**
 
 ```mermaid
 sequenceDiagram
@@ -191,3 +197,44 @@ sequenceDiagram
 | #   | Required changes | Components | Phase | Use Case | Jira |
 | --- | ---------------- | ---------- | ----- | -------- | ---- |
 | 1   | -                | -          | -     | -        | -    |
+
+---
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>   _Everything_ is going according to **plan**.
+
+> [!WARNING]
+> Dangerous certain consequences of an action.
+
+# Open questions
+
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
+
+```ruby
+# The Greeter class
+class Greeter
+  def initialize(name)
+    @name = name.capitalize
+  end
+
+  def salute
+    puts "Hello #{@name}!"
+  end
+end
+
+# Create a new object
+g = Greeter.new("world")
+
+# Output "Hello World!"
+g.salute
+```
+
+```yaml
+{ "this-json": "looks awesome..." }
+```

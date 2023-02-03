@@ -1,0 +1,15 @@
+references:
+  - type: article-journal
+    id: WatsonCrick1953
+    author:
+      Watson
+    title: "Molecular structure of nucleic acids: a structure for
+      deoxyribose nucleic acid"
+    title-short: Molecular structure of nucleic acids
+    container-title: Nature
+    volume: 171
+    issue: 4356
+    page: 737-738
+    DOI: 10.1038/171737a0
+    URL: https://www.nature.com/articles/171737a0
+    language: en-GB
